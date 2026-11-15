@@ -1,6 +1,10 @@
-# Tickvana
+<p align="center">
+  <img src="apps/tickvana/web/public/mark.png" width="86" height="86" alt="">
+</p>
 
-**Plan. Track. Get it done.**
+<h1 align="center">Tickvana</h1>
+
+<p align="center"><strong>Plan. Track. Get it done.</strong></p>
 
 Self-hosted issue tracking and service desk: projects, tickets with your own fields and workflows, boards and sprints, a customer portal with SLAs and mail, automations, dashboards — and SQL instead of a query language of its own.
 
