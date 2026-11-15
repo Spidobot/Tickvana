@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist/types-web",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"],
+    "emitDeclarationOnly": true
+  },
+  "include": ["web/src", "vite.config.ts"],
+  "references": [
+    {
+      "path": "../../packages/ui"
+    }
+  ]
+}

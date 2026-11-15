@@ -1,0 +1,164 @@
+{
+  "core_api_token": [
+    "created_at",
+    "expires_at?",
+    "id",
+    "last_used_at?",
+    "name",
+    "token_hash",
+    "user_id"
+  ],
+  "core_attachment": [
+    "created_at",
+    "created_by",
+    "filename",
+    "id",
+    "mime",
+    "owner_id",
+    "owner_type",
+    "size",
+    "storage_key"
+  ],
+  "core_dashboard": [
+    "created_at",
+    "group_id?",
+    "id",
+    "layout_json",
+    "name",
+    "owner_id",
+    "updated_at",
+    "visibility"
+  ],
+  "core_dashboard_widget": [
+    "config_json",
+    "dashboard_id",
+    "id",
+    "kind",
+    "query_id"
+  ],
+  "core_event": [
+    "actor_id?",
+    "created_at",
+    "entity_id",
+    "entity_type",
+    "id",
+    "payload_json",
+    "type"
+  ],
+  "core_global_grant": [
+    "created_at",
+    "grantee_id?",
+    "grantee_type",
+    "id",
+    "permission"
+  ],
+  "core_group": [
+    "created_at",
+    "id",
+    "name"
+  ],
+  "core_group_member": [
+    "group_id",
+    "user_id"
+  ],
+  "core_home_dashboard": [
+    "dashboard_id",
+    "user_id"
+  ],
+  "core_identity": [
+    "created_at",
+    "provider",
+    "subject",
+    "user_id"
+  ],
+  "core_job": [
+    "attempts",
+    "created_at",
+    "id",
+    "last_error?",
+    "locked_at?",
+    "locked_by?",
+    "payload_json",
+    "run_at",
+    "state",
+    "type"
+  ],
+  "core_link": [
+    "created_at",
+    "from_id",
+    "from_type",
+    "kind",
+    "to_id",
+    "to_type"
+  ],
+  "core_notification": [
+    "created_at",
+    "event_id",
+    "id",
+    "mailed_at?",
+    "read_at?",
+    "user_id"
+  ],
+  "core_query_subscription": [
+    "hour",
+    "id",
+    "last_sent_on?",
+    "query_id",
+    "user_id",
+    "weekdays"
+  ],
+  "core_saved_query": [
+    "created_at",
+    "group_id?",
+    "id",
+    "name",
+    "owner_id",
+    "params_json",
+    "sql",
+    "updated_at",
+    "visibility"
+  ],
+  "core_session": [
+    "created_at",
+    "expires_at",
+    "id_hash",
+    "user_id"
+  ],
+  "core_setting": [
+    "key",
+    "updated_at",
+    "value_json"
+  ],
+  "core_user": [
+    "active",
+    "created_at",
+    "display_name",
+    "email",
+    "id",
+    "kind",
+    "locale",
+    "password_hash?",
+    "timezone",
+    "updated_at"
+  ],
+  "core_webhook": [
+    "active",
+    "created_at",
+    "event_filter_json",
+    "id",
+    "name?",
+    "secret",
+    "url"
+  ],
+  "core_webhook_delivery": [
+    "attempt",
+    "created_at",
+    "duration_ms",
+    "error?",
+    "event_id",
+    "event_type",
+    "id",
+    "status_code?",
+    "webhook_id"
+  ]
+}

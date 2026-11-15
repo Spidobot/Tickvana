@@ -1,0 +1,16 @@
+# One origin for both apps. SITE_ADDRESS is a host name for automatic HTTPS
+# (work.example.org) or :80 for plain HTTP behind another proxy.
+{$SITE_ADDRESS::80} {
+	encode zstd gzip
+	redir / /tickvana/
+
+	handle /tickvana* {
+		reverse_proxy tickvana:3000
+	}
+	handle /nuvenna* {
+		reverse_proxy nuvenna:3000
+	}
+	handle {
+		respond "Not found" 404
+	}
+}

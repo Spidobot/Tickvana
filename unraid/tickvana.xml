@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Tickvana and Nuvenna on Unraid: Tickvana. Runs behind tvn-proxy on the network "tvn". See docs/unraid.md. -->
+<Container version="2">
+  <Name>tickvana</Name>
+  <Repository>ghcr.io/spidobot/tickvana:latest</Repository>
+  <Registry>https://github.com/spidobot/tickvana/pkgs/container/tickvana</Registry>
+  <Network>tvn</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>Tickvana. Projects, tickets, boards, service desk with customer portal, SQL queries and dashboards. Open it through tvn-proxy, not directly: Tickvana and Nuvenna must share one address.</Overview>
+  <Category>Productivity: Tools:</Category>
+  <Config Name="Public address" Target="BASE_URL" Default="http://tower:8080" Mode="" Description="The address you open in the browser, without a trailing slash: the proxy, e.g. http://192.168.1.10:8080 or https://work.example.org. Same value in both apps." Type="Variable" Display="always" Required="true" Mask="false">http://tower:8080</Config>
+  <Config Name="Secret key" Target="SECRET_KEY" Default="" Mode="" Description="At least 32 random characters, same in both apps. Never change it later (it encrypts stored passwords). Generate: openssl rand -base64 48" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Database" Target="DB_URL" Default="postgres://tvn:PASSWORD@tvn-db:5432/tvn" Mode="" Description="postgres://… or mysql://… Replace PASSWORD with the database password." Type="Variable" Display="always" Required="true" Mask="true">postgres://tvn:PASSWORD@tvn-db:5432/tvn</Config>
+  <Config Name="Query engine database" Target="DB_QUERY_URL" Default="postgres://tvn_query:PASSWORD@tvn-db:5432/tvn" Mode="" Description="Read-only role for SQL queries. Replace PASSWORD with the query role password. Leave empty to allow SQL for system administrators only." Type="Variable" Display="always" Required="false" Mask="true">postgres://tvn_query:PASSWORD@tvn-db:5432/tvn</Config>
+  <Config Name="Behind a proxy" Target="TRUST_PROXY" Default="true" Mode="" Description="Keep true: the app runs behind tvn-proxy." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Largest attachment (MB)" Target="MAX_UPLOAD_MB" Default="50" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">50</Config>
+  <Config Name="Attachments" Target="/data" Default="/mnt/user/appdata/tvn/data" Mode="rw" Description="Same folder for Tickvana and Nuvenna." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/tvn/data</Config>
+</Container>

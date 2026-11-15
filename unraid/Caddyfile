@@ -1,0 +1,16 @@
+# Tickvana and Nuvenna on Unraid: one address for both apps. The container names are
+# reachable because all containers sit on the network "tvn".
+{$SITE_ADDRESS::80} {
+	encode zstd gzip
+	redir / /tickvana/
+
+	handle /tickvana* {
+		reverse_proxy tickvana:3000
+	}
+	handle /nuvenna* {
+		reverse_proxy nuvenna:3000
+	}
+	handle {
+		respond "Not found" 404
+	}
+}

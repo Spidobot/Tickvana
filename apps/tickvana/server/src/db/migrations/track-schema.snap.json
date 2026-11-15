@@ -1,0 +1,393 @@
+{
+  "track_approval": [
+    "approver_id",
+    "decided_at?",
+    "decision?",
+    "id",
+    "issue_id"
+  ],
+  "track_automation_caused": [
+    "event_id",
+    "run_id"
+  ],
+  "track_automation_rule": [
+    "actions_json",
+    "actor_id",
+    "conditions_json",
+    "enabled",
+    "id",
+    "name",
+    "project_id?",
+    "trigger_json"
+  ],
+  "track_automation_run": [
+    "created_at",
+    "event_id?",
+    "id",
+    "log_json",
+    "rule_id",
+    "state"
+  ],
+  "track_board": [
+    "columns_json",
+    "estimate_field_id?",
+    "id",
+    "kind",
+    "name",
+    "project_id?",
+    "query_id",
+    "swimlane_json"
+  ],
+  "track_bulk_operation": [
+    "action_json",
+    "actor_id",
+    "created_at",
+    "done",
+    "errors_json",
+    "finished_at?",
+    "id",
+    "pending_json",
+    "state",
+    "total"
+  ],
+  "track_calendar": [
+    "holidays_json",
+    "hours_json",
+    "id",
+    "name",
+    "timezone"
+  ],
+  "track_canned_response": [
+    "body_json",
+    "id",
+    "name",
+    "project_id?"
+  ],
+  "track_comment": [
+    "author_id",
+    "body_json",
+    "body_text",
+    "created_at",
+    "id",
+    "issue_id",
+    "updated_at",
+    "visibility"
+  ],
+  "track_component": [
+    "id",
+    "lead_id?",
+    "name",
+    "project_id"
+  ],
+  "track_field": [
+    "config_json",
+    "id",
+    "is_system",
+    "key",
+    "name",
+    "type"
+  ],
+  "track_field_layout": [
+    "id",
+    "name"
+  ],
+  "track_field_layout_item": [
+    "field_id",
+    "hidden",
+    "layout_id",
+    "operation",
+    "position",
+    "required",
+    "tab"
+  ],
+  "track_field_option": [
+    "disabled",
+    "field_id",
+    "id",
+    "parent_id?",
+    "position",
+    "value"
+  ],
+  "track_issue": [
+    "assignee_id?",
+    "created_at",
+    "description_json?",
+    "description_text",
+    "due_date?",
+    "estimate_sec?",
+    "id",
+    "key",
+    "number",
+    "parent_id?",
+    "priority_id",
+    "project_id",
+    "rank",
+    "remaining_sec?",
+    "reporter_id",
+    "request_type_id?",
+    "resolution_id?",
+    "resolved_at?",
+    "security_level_id?",
+    "spent_sec",
+    "status_id",
+    "summary",
+    "type_id",
+    "updated_at"
+  ],
+  "track_issue_change": [
+    "actor_id",
+    "created_at",
+    "id",
+    "issue_id"
+  ],
+  "track_issue_change_item": [
+    "change_id",
+    "field_key",
+    "from_text?",
+    "from_value?",
+    "id",
+    "to_text?",
+    "to_value?"
+  ],
+  "track_issue_component": [
+    "component_id",
+    "issue_id"
+  ],
+  "track_issue_field_value": [
+    "field_id",
+    "issue_id",
+    "position",
+    "value_date?",
+    "value_number?",
+    "value_ref?",
+    "value_text?"
+  ],
+  "track_issue_label": [
+    "issue_id",
+    "label"
+  ],
+  "track_issue_link": [
+    "from_issue_id",
+    "id",
+    "to_issue_id",
+    "type_id"
+  ],
+  "track_issue_type": [
+    "icon",
+    "id",
+    "level",
+    "name"
+  ],
+  "track_issue_version": [
+    "issue_id",
+    "kind",
+    "version_id"
+  ],
+  "track_link_type": [
+    "id",
+    "inward",
+    "name",
+    "outward"
+  ],
+  "track_mail_channel": [
+    "active",
+    "id",
+    "imap_json",
+    "project_id",
+    "request_type_id"
+  ],
+  "track_notification_rule": [
+    "event_type",
+    "id",
+    "recipient_id?",
+    "recipient_type",
+    "scheme_id"
+  ],
+  "track_notification_scheme": [
+    "id",
+    "name"
+  ],
+  "track_organization": [
+    "id",
+    "name"
+  ],
+  "track_organization_member": [
+    "organization_id",
+    "user_id"
+  ],
+  "track_permission_grant": [
+    "grantee_id?",
+    "grantee_type",
+    "id",
+    "permission",
+    "scheme_id"
+  ],
+  "track_permission_scheme": [
+    "id",
+    "name"
+  ],
+  "track_priority": [
+    "color",
+    "id",
+    "name",
+    "position"
+  ],
+  "track_project": [
+    "archived",
+    "created_at",
+    "id",
+    "issue_counter",
+    "key",
+    "kind",
+    "lead_id",
+    "name",
+    "notification_scheme_id",
+    "permission_scheme_id"
+  ],
+  "track_project_customer": [
+    "principal_id",
+    "principal_type",
+    "project_id"
+  ],
+  "track_project_issue_type": [
+    "field_layout_id",
+    "issue_type_id",
+    "project_id",
+    "workflow_id"
+  ],
+  "track_project_role": [
+    "id",
+    "name"
+  ],
+  "track_project_role_member": [
+    "principal_id",
+    "principal_type",
+    "project_id",
+    "role_id"
+  ],
+  "track_queue": [
+    "id",
+    "name",
+    "position",
+    "project_id",
+    "query_id"
+  ],
+  "track_request_type": [
+    "defaults_json",
+    "description",
+    "field_layout_id",
+    "group_name",
+    "icon",
+    "id",
+    "issue_type_id",
+    "name",
+    "position",
+    "project_id"
+  ],
+  "track_resolution": [
+    "id",
+    "name"
+  ],
+  "track_security_level": [
+    "id",
+    "name",
+    "project_id"
+  ],
+  "track_security_level_member": [
+    "grantee_id?",
+    "grantee_type",
+    "id",
+    "level_id"
+  ],
+  "track_sla_cycle": [
+    "breached",
+    "due_at",
+    "id",
+    "issue_id",
+    "paused_at?",
+    "paused_ms",
+    "policy_id",
+    "started_at",
+    "stopped_at?"
+  ],
+  "track_sla_policy": [
+    "calendar_id",
+    "goals_json",
+    "id",
+    "name",
+    "pause_json",
+    "project_id",
+    "start_json",
+    "stop_json"
+  ],
+  "track_sprint": [
+    "board_id",
+    "end_at?",
+    "goal",
+    "id",
+    "name",
+    "start_at?",
+    "state"
+  ],
+  "track_sprint_issue": [
+    "added_at",
+    "issue_id",
+    "removed_at?",
+    "sprint_id"
+  ],
+  "track_status": [
+    "category",
+    "id",
+    "name"
+  ],
+  "track_version": [
+    "id",
+    "name",
+    "project_id",
+    "release_date?",
+    "released",
+    "start_date?"
+  ],
+  "track_vote": [
+    "issue_id",
+    "user_id"
+  ],
+  "track_watcher": [
+    "issue_id",
+    "user_id"
+  ],
+  "track_workflow": [
+    "id",
+    "name"
+  ],
+  "track_workflow_draft": [
+    "definition_json",
+    "updated_at",
+    "updated_by",
+    "workflow_id"
+  ],
+  "track_workflow_status": [
+    "status_id",
+    "workflow_id",
+    "x",
+    "y"
+  ],
+  "track_workflow_transition": [
+    "field_layout_id?",
+    "from_status_id?",
+    "id",
+    "name",
+    "rules_json",
+    "to_status_id",
+    "workflow_id"
+  ],
+  "track_worklog": [
+    "author_id",
+    "created_at",
+    "id",
+    "issue_id",
+    "note",
+    "seconds",
+    "started_at"
+  ]
+}

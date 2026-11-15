@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- Tickvana and Nuvenna on Unraid: the database. Optional when you already run PostgreSQL or MariaDB. See docs/unraid.md. -->
+<Container version="2">
+  <Name>tvn-db</Name>
+  <Repository>postgres:16</Repository>
+  <Registry>https://hub.docker.com/_/postgres</Registry>
+  <Network>tvn</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>PostgreSQL for Tickvana and Nuvenna. Creates the read-only role for the query engine on first start (script in appdata/tvn/initdb).</Overview>
+  <Category>Productivity: Tools:</Category>
+  <Config Name="Database user" Target="POSTGRES_USER" Default="tvn" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">tvn</Config>
+  <Config Name="Database password" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="Same value as in DB_URL of Tickvana and Nuvenna." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Database name" Target="POSTGRES_DB" Default="tvn" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">tvn</Config>
+  <Config Name="Query role password" Target="QUERY_DB_PASSWORD" Default="" Mode="" Description="Password of the read-only role tvn_query. Same value as in DB_QUERY_URL." Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Data" Target="/var/lib/postgresql/data" Default="/mnt/user/appdata/tvn/db" Mode="rw" Description="Database files." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/tvn/db</Config>
+  <Config Name="Init scripts" Target="/docker-entrypoint-initdb.d" Default="/mnt/user/appdata/tvn/initdb" Mode="ro" Description="Holds 10-query-role.sh from the repository (docker/initdb)." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/tvn/initdb</Config>
+</Container>

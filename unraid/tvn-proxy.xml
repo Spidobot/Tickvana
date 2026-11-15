@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Tickvana and Nuvenna on Unraid: Caddy puts Tickvana and Nuvenna on one address. See docs/unraid.md. -->
+<Container version="2">
+  <Name>tvn-proxy</Name>
+  <Repository>caddy:2</Repository>
+  <Registry>https://hub.docker.com/_/caddy</Registry>
+  <Network>tvn</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>Entry point of Tickvana and Nuvenna: /tickvana goes to Tickvana, /nuvenna to Nuvenna. Open this one in the browser.</Overview>
+  <Category>Productivity: Tools: Network:Proxy</Category>
+  <WebUI>http://[IP]:[PORT:80]/tickvana/</WebUI>
+  <Config Name="HTTP port" Target="80" Default="8080" Mode="tcp" Description="Port on the Unraid server. BASE_URL of both apps must use it." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Site address" Target="SITE_ADDRESS" Default=":80" Mode="" Description=":80 for plain HTTP (or behind another proxy such as Nginx Proxy Manager). A public host name for automatic HTTPS needs ports 80 and 443 forwarded to this container." Type="Variable" Display="advanced" Required="true" Mask="false">:80</Config>
+  <Config Name="Caddyfile" Target="/etc/caddy/Caddyfile" Default="/mnt/user/appdata/tvn/Caddyfile" Mode="ro" Description="unraid/Caddyfile from the repository." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/tvn/Caddyfile</Config>
+  <Config Name="Caddy data" Target="/data" Default="/mnt/user/appdata/tvn/caddy" Mode="rw" Description="Certificates." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/tvn/caddy</Config>
+</Container>

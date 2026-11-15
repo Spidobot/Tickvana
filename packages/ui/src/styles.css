@@ -1,0 +1,348 @@
+/*
+ * Design tokens of Tickvana and Nuvenna. See CONCEPT.md §8.
+ * One graphite ramp for surfaces, lines and text. One accent, which comes from
+ * branding (--brand-accent is overridden by /api/core/branding.css).
+ * Feature code uses the Tailwind names below, never raw values.
+ */
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@source ".";
+
+:root {
+  --brand-accent: #1f4fd8;
+  /* Accent used as text or icon on a surface. Needs 4.5:1 there. */
+  --brand-accent-ink: #1f4fd8;
+  --brand-on-accent: #ffffff;
+
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --raised: #f4f4f5;
+  --sunken: #f4f4f5;
+  --fg: #171717;
+  --fg-2: #525252;
+  --fg-3: #6b6b6b;
+  --line: rgb(23 23 23 / 0.1);
+  --line-strong: rgb(23 23 23 / 0.18);
+  --positive: #15803d;
+  --negative: #dc2626;
+  --shadow-float: 0 8px 24px rgb(0 0 0 / 0.08), 0 1px 2px rgb(0 0 0 / 0.05);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --brand-accent-ink: #8aa6ff;
+    --bg: #141415;
+    --surface: #19191b;
+    --raised: #232325;
+    --sunken: #0f0f10;
+    --fg: #ededed;
+    --fg-2: #a1a1a6;
+    --fg-3: #8b8b91;
+    --line: rgb(237 237 237 / 0.1);
+    --line-strong: rgb(237 237 237 / 0.18);
+    --positive: #4cc38a;
+    --negative: #f0696d;
+    --shadow-float: 0 0 0 1px rgb(237 237 237 / 0.08);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --brand-accent-ink: #8aa6ff;
+  --bg: #141415;
+  --surface: #19191b;
+  --raised: #232325;
+  --sunken: #0f0f10;
+  --fg: #ededed;
+  --fg-2: #a1a1a6;
+  --fg-3: #8b8b91;
+  --line: rgb(237 237 237 / 0.1);
+  --line-strong: rgb(237 237 237 / 0.18);
+  --positive: #4cc38a;
+  --negative: #f0696d;
+  --shadow-float: 0 0 0 1px rgb(237 237 237 / 0.08);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-sunken: var(--sunken);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--brand-accent);
+  --color-accent-ink: var(--brand-accent-ink);
+  --color-on-accent: var(--brand-on-accent);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-transparent: transparent;
+
+  /* The 4px grid in pixels: the root font size is 14px, so rem would give 3.5px steps. */
+  --spacing: 4px;
+
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  --text-*: initial;
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 13px;
+  --text-sm--line-height: 20px;
+  --text-base: 14px;
+  --text-base--line-height: 20px;
+  --text-lg: 16px;
+  --text-lg--line-height: 24px;
+  --text-xl: 20px;
+  --text-xl--line-height: 28px;
+  --text-2xl: 28px;
+  --text-2xl--line-height: 32px;
+
+  --font-weight-*: initial;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+
+  --radius-*: initial;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  --shadow-*: initial;
+  --shadow-float: var(--shadow-float);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --default-transition-duration: 140ms;
+  --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    background: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    margin: 0;
+    min-height: 100dvh;
+  }
+  :focus-visible {
+    outline: 2px solid var(--brand-accent-ink);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--brand-accent) 24%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      transition-duration: 0ms !important;
+      animation-duration: 0ms !important;
+    }
+  }
+}
+
+@keyframes tw-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@utility animate-rise {
+  animation: tw-rise 180ms var(--ease-out);
+}
+
+/* Rich text, in the editor and wherever a stored document is shown. */
+@layer components {
+  .tw-prose {
+    color: var(--fg);
+    font-size: 14px;
+    line-height: 22px;
+    overflow-wrap: anywhere;
+  }
+  .tw-prose > * + * {
+    margin-top: 12px;
+  }
+  .tw-prose :is(h1, h2, h3, h4) {
+    font-weight: 500;
+    margin-top: 24px;
+  }
+  .tw-prose > :first-child {
+    margin-top: 0;
+  }
+  .tw-prose h1 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .tw-prose h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .tw-prose h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .tw-prose :is(ul, ol) {
+    padding-left: 24px;
+  }
+  .tw-prose ul {
+    list-style: disc;
+  }
+  .tw-prose ol {
+    list-style: decimal;
+  }
+  .tw-prose li + li,
+  .tw-prose li > :is(ul, ol) {
+    margin-top: 4px;
+  }
+  .tw-prose ul[data-type="taskList"] {
+    list-style: none;
+    padding-left: 0;
+  }
+  .tw-prose ul[data-type="taskList"] > li {
+    display: flex;
+    gap: 8px;
+  }
+  .tw-prose ul[data-type="taskList"] > li > label {
+    padding-top: 3px;
+  }
+  .tw-prose ul[data-type="taskList"] > li > div {
+    flex: 1;
+  }
+  .tw-prose a {
+    color: var(--brand-accent-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .tw-prose blockquote {
+    border-left: 2px solid var(--line-strong);
+    padding-left: 12px;
+    color: var(--fg-2);
+  }
+  .tw-prose code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--raised);
+    border-radius: 4px;
+    padding: 2px 4px;
+  }
+  .tw-prose pre {
+    background: var(--sunken);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
+    overflow-x: auto;
+  }
+  .tw-prose pre code {
+    background: none;
+    padding: 0;
+  }
+  .tw-prose hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 24px 0;
+  }
+  .tw-prose img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  .tw-prose table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+  .tw-prose :is(th, td) {
+    border: 1px solid var(--line-strong);
+    padding: 8px;
+    vertical-align: top;
+    text-align: left;
+  }
+  .tw-prose th {
+    background: var(--raised);
+    font-weight: 500;
+  }
+  .tw-prose [data-callout] {
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--fg-3);
+    border-radius: 8px;
+    background: var(--raised);
+    padding: 12px;
+  }
+  .tw-prose [data-callout="info"] {
+    border-left-color: var(--brand-accent-ink);
+  }
+  .tw-prose [data-callout="success"] {
+    border-left-color: var(--positive);
+  }
+  .tw-prose [data-callout="danger"] {
+    border-left-color: var(--negative);
+  }
+  .tw-prose details,
+  .tw-prose [data-type="details"] {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+  .tw-prose summary {
+    font-weight: 500;
+    cursor: default;
+  }
+  .tw-prose [data-mention] {
+    color: var(--brand-accent-ink);
+    font-weight: 500;
+  }
+  .tw-prose [data-status] {
+    display: inline-block;
+    background: var(--raised);
+    border-radius: 4px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+  .tw-prose time {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--fg-2);
+  }
+  .tw-prose p[data-attachment] a {
+    display: inline-block;
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    padding: 4px 12px;
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .tw-mention-list {
+    position: fixed;
+    z-index: 60;
+    min-width: 192px;
+    max-height: 240px;
+    overflow-y: auto;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: var(--shadow-float);
+    padding: 4px;
+  }
+  .tw-mention-option {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0 8px;
+    cursor: default;
+  }
+  .tw-mention-option[aria-selected="true"] {
+    background: var(--raised);
+  }
+}
