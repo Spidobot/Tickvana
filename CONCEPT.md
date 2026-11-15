@@ -1,6 +1,6 @@
 # Tickvana und Nuvenna — Konzept
 
-Open-Source-Alternative zu Jira und Confluence. Selbst gehostet, per Docker, mit externer Datenbank.
+Freie Ticketverwaltung (Tickvana) und freies Wiki (Nuvenna) für Teams. Selbst gehostet, per Docker, mit externer Datenbank.
 
 - **Tickvana** — Issue-Tracker, Boards, Service-Desk mit Self-Service-Portal
 - **Nuvenna** — Wiki mit gleichzeitigem Bearbeiten derselben Seite
@@ -218,7 +218,7 @@ canned_response(id, project_id?, name, body_json)
 mail_channel(id, project_id, request_type_id, imap_json, active)
 ```
 
-Bewusste Vereinfachung gegenüber Jira: keine Schema-Zwischenschicht für Workflows und Masken. Ein Projekt ordnet je Issue-Typ direkt einen Workflow und ein Feldlayout zu. Workflows und Layouts sind benannt und zwischen Projekten wiederverwendbar. Das spart drei Tabellenebenen und die meistgehasste Adminseite von Jira.
+Bewusste Vereinfachung: keine Schema-Zwischenschicht für Workflows und Masken. Ein Projekt ordnet je Issue-Typ direkt einen Workflow und ein Feldlayout zu. Workflows und Layouts sind benannt und zwischen Projekten wiederverwendbar. Das spart drei Tabellenebenen und eine schwer verständliche Verwaltungsseite.
 
 **Benutzerdefinierte Felder** liegen als typisierte Zeilen in `issue_field_value`. Mehrfachwerte sind mehrere Zeilen. Das ist portabel, sortierbar, indexierbar und lässt sich in der Abfrage-Engine zu Spalten drehen.
 
@@ -355,7 +355,7 @@ Sicherung: Datenbank-Dump und das Volume. Mehr Zustand gibt es nicht.
 
 ## 11. Umfang
 
-„Alles, was Jira und Confluence können“ ist das Ergebnis von über zwanzig Jahren. Der Plan liefert den Teil, den Teams täglich benutzen, in vier Meilensteinen. Jeder ist für sich benutzbar.
+Der volle Funktionsumfang großer etablierter Werkzeuge ist das Ergebnis von über zwanzig Jahren. Der Plan liefert den Teil, den Teams täglich benutzen, in vier Meilensteinen. Jeder ist für sich benutzbar.
 
 | Meilenstein | Ergebnis |
 | --- | --- |
@@ -367,7 +367,7 @@ Sicherung: Datenbank-Dump und das Volume. Mehr Zustand gibt es nicht.
 Bewusst nicht im Plan, bis jemand es braucht:
 
 - Plugin-System und Marktplatz
-- Import aus Jira und Confluence (ein eigenes Projekt, nach M4 das Erste)
+- Import aus anderen Ticket- und Wiki-Systemen (ein eigenes Projekt, nach M4 das Erste)
 - LDAP, SAML (OIDC deckt die meisten Fälle über einen Identity-Provider)
 - S3-Speicher, Meilisearch, mehrere Nuvenna-Instanzen
 - MSSQL, Oracle
