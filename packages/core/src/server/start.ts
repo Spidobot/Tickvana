@@ -194,7 +194,7 @@ export async function startApp(
       onError: (error, job) =>
         server?.log.error({ err: error, job }, "job failed"),
     });
-    const brand = def.brand ?? { productName: def.name, accent: "#3d5af1" };
+    const brand = def.brand ?? { productName: def.name, accent: "#4f6bff" };
     const mailer = createMailer(database.db, config.SECRET_KEY, queue, brand);
     installWebhookDelivery({
       db: database.db,

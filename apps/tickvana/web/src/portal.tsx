@@ -4,6 +4,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import {
+  Brand,
   Button,
   Card,
   EmptyState,
@@ -73,15 +74,7 @@ function PortalLayout({
       <header className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-4xl items-center gap-4 px-4 py-3">
           <Link to="/portal" className="flex-1 text-base font-medium text-fg">
-            {branding.logoLightUrl ? (
-              <img
-                src={branding.logoLightUrl}
-                alt={branding.productName}
-                className="h-6"
-              />
-            ) : (
-              branding.productName
-            )}
+            <Brand branding={branding} />
           </Link>
           <Link
             to="/portal/requests"

@@ -32,6 +32,8 @@ export interface BrandingInfo {
   logoLightUrl: string | null;
   logoDarkUrl: string | null;
   faviconUrl: string | null;
+  /** The app's own mark, shown beside the name while no logo is uploaded. Set here, not by the server. */
+  markUrl: string;
 }
 
 export type CoreApi = ReturnType<typeof createCoreApi>;
@@ -87,9 +89,12 @@ export function createCoreApi(prefix: string) {
     setupNeeded: () => call<{ needed: boolean }>("GET", "/core/setup"),
     setup: (body: Record<string, string>) =>
       call<{ id: string }>("POST", "/core/setup", body),
-    branding: () => call<BrandingInfo>("GET", "/core/branding"),
+    branding: async (): Promise<BrandingInfo> => ({
+      ...(await call<Omit<BrandingInfo, "markUrl">>("GET", "/core/branding")),
+      markUrl: `${prefix}/mark.png`,
+    }),
     saveBranding: (body: Partial<BrandingInfo & { customCss: string }>) =>
-      call<BrandingInfo>("PUT", "/core/branding", body),
+      call<unknown>("PUT", "/core/branding", body),
     customCss: () =>
       call<{ customCss: string }>("GET", "/core/branding/custom-css"),
     uploadBrandingImage: (

@@ -9,26 +9,7 @@ import {
   type CoreApi,
   type Providers,
 } from "./api.js";
-
-function Brand({ branding }: { branding: BrandingInfo }) {
-  return branding.logoLightUrl ? (
-    <picture>
-      {branding.logoDarkUrl && (
-        <source
-          srcSet={branding.logoDarkUrl}
-          media="(prefers-color-scheme: dark)"
-        />
-      )}
-      <img
-        src={branding.logoLightUrl}
-        alt={branding.productName}
-        className="h-8 w-auto"
-      />
-    </picture>
-  ) : (
-    <span className="text-xl font-medium text-fg">{branding.productName}</span>
-  );
-}
+import { Brand } from "./brand.js";
 
 /** Narrow column on the page background. The form is the only raised surface. */
 function Frame({
@@ -46,7 +27,9 @@ function Frame({
 }) {
   return (
     <main className="mx-auto flex min-h-dvh w-full max-w-[400px] flex-col justify-center gap-6 px-4 py-12">
-      <Brand branding={branding} />
+      <div className="text-xl font-medium text-fg">
+        <Brand branding={branding} size="lg" />
+      </div>
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-medium text-fg">{title}</h1>
         {text && <p className="text-fg-2">{text}</p>}

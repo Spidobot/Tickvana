@@ -50,7 +50,7 @@ const { version } = JSON.parse(
 /** What makes this app: name, path and routes. Used by the server and by the API client generator. */
 export const definition: AppDefinition = {
   name: "tickvana",
-  brand: { productName: "Tickvana", accent: "#3d5af1" },
+  brand: { productName: "Tickvana", accent: "#4f6bff" },
   version,
   prefix: "/tickvana",
   migrate: migrateTrack,

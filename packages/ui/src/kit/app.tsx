@@ -29,6 +29,7 @@ import {
   type Me,
 } from "./api.js";
 import { LoginPage, ResetPasswordPage, SetupPage } from "./auth-pages.js";
+import { Brand } from "./brand.js";
 import { NotificationBell } from "./notifications.js";
 import * as locales from "./locales.js";
 
@@ -350,25 +351,7 @@ export function Frame({
   return (
     <AppShell
       title={title}
-      brand={
-        branding.logoLightUrl ? (
-          <picture>
-            {branding.logoDarkUrl && (
-              <source
-                srcSet={branding.logoDarkUrl}
-                media="(prefers-color-scheme: dark)"
-              />
-            )}
-            <img
-              src={branding.logoLightUrl}
-              alt={branding.productName}
-              className="h-6 w-auto"
-            />
-          </picture>
-        ) : (
-          branding.productName
-        )
-      }
+      brand={<Brand branding={branding} />}
       labels={{
         navigation: t("shell.navigation"),
         search: t("shell.search"),

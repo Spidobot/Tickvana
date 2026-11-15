@@ -302,7 +302,7 @@ Feste Regeln für alle UI-Aufgaben:
 
 - 4-px-Raster. Navigationszeilen 32 bis 36 px, Seitenleiste 240 bis 280 px, Inhalt fließend bis 1600 px.
 - Eine neutrale Grafit-Rampe für Flächen, Linien und Text, hell und dunkel. Drei Textrollen. Ein Akzent, und der kommt aus dem Branding.
-- Geist für die Oberfläche, Geist Mono für Schlüssel, Zahlen, Zeiten. Gewichte 400 und 500. Normale Groß-/Kleinschreibung, keine gesperrten Versalien.
+- Inter für die Oberfläche, Geist Mono für Schlüssel, Zahlen, Zeiten. Gewichte 400 und 500. Normale Groß-/Kleinschreibung, keine gesperrten Versalien.
 - lucide-Icons, 16 px, Strich 1,5, in Textfarbe. Keine Emojis in der Oberfläche.
 - Keine Farbverläufe, kein Leuchten, keine farbigen Schatten. Tiefe durch Flächenstufen und Haarlinien.
 - Statuskategorien sind die einzige feste Farbbedeutung (offen neutral, in Arbeit Akzent, erledigt grün), gedämpft.

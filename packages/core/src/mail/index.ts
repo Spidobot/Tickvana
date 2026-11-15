@@ -128,7 +128,7 @@ export function createMailer(
   /** Name and accent in mails while no brand is set. */
   defaults: { productName: string; accent: string } = {
     productName: "Tickvana",
-    accent: "#3d5af1",
+    accent: "#4f6bff",
   },
 ): Mailer {
   // One connection pool per configuration, rebuilt when the settings change.

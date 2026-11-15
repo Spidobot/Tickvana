@@ -3,6 +3,7 @@ export * from "./overlays.js";
 export * from "./shell.js";
 export * from "./kit/api.js";
 export * from "./kit/app.js";
+export * from "./kit/brand.js";
 export * from "./kit/branding-page.js";
 export * from "./editor.js";
 export * from "./kit/query.js";

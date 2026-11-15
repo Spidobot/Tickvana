@@ -5,7 +5,7 @@
  * Feature code uses the Tailwind names below, never raw values.
  */
 @import "tailwindcss";
-@import "@fontsource-variable/geist";
+@import "@fontsource-variable/inter";
 @import "@fontsource-variable/geist-mono";
 @source ".";
 
@@ -86,7 +86,7 @@
   /* The 4px grid in pixels: the root font size is 14px, so rem would give 3.5px steps. */
   --spacing: 4px;
 
-  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, monospace;
 
   --text-*: initial;
